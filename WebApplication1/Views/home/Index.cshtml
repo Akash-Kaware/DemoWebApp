@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Employee List";
+
+}
+
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@item.Name</h3>
+            </div>
+            <img class="card-img-top" src="~/images/no-image.png" asp-append-version="true" />
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="details" asp-route-id="@item.Id" class="btn btn-primary m-1">Display</a>
+                @*@Html.ActionLink("View", "details", "home", new { id = item.Id }, new { @class = "btn btn-primary" })*@
+                @*<a href="@Url.Action("details","home",new { id=item.Id})" class="btn btn-primary">View</a>*@
+                <a href="#" class="btn btn-primary m-1">Edit</a>
+                <a href="#" class="btn btn-danger m-1">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+@*<table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Department</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+
